@@ -1,22 +1,18 @@
-/*
- * Debug.hpp
+/**
+ * Phasing.cpp
  *
- * Project: MacroDebugger
- *
- * Implementazioni delle funzioni ausiliarie di debug, che non possono essere
- * rese come MACRO per via dell'utilizzo di strutture dati specifiche.
+ * Project:         MacroDebugger
+ * Created by:      Michele Dusi
  *
  */
 
-#include "Debug.hpp"
+#include "Phasing.hpp"
 
 #include <list>
 
-using std::list;
-
 namespace macrodebug {
 
-	list<int> tickets_stack = list<int>();
+	std::list<int> tickets_stack = std::list<int>();
 	int number_of_elements = 0;
 
 	/**
@@ -24,8 +20,8 @@ namespace macrodebug {
 	 * Permette la computazione della lista di numeri relativi alle varie fasi di
 	 * cui si sta tenendo traccia.
 	 */
-	string debugComputeTicketsList() {
-		string result = std::to_string(*tickets_stack.begin());
+	std::string debugComputeTicketsList() {
+		std::string result = std::to_string(*tickets_stack.begin());
 
 		auto cursor = ++tickets_stack.begin();
 		for (int i = 1; i < number_of_elements; i++) {
@@ -43,7 +39,7 @@ namespace macrodebug {
 	 * 	 nuova fase; in altre parole, segna che si è "scesi di un livello".
 	 * - Restituisce una stringa che contiene la traccia di tutte le fasi attraversate finora.
 	 */
-	string debugAcquireTicket() {
+	std::string debugAcquireTicket() {
 
 		// Aggiungo un elemento alla catena
 		number_of_elements++;
@@ -72,9 +68,9 @@ namespace macrodebug {
 	 *   corrente; in altre parole, segna che si è "risaliti di un livello".
 	 * - Restituisce una stringa che contiene la traccia di tutte le fasi attraversate finora.
 	 */
-	string debugReleaseTicket() {
+	std::string debugReleaseTicket() {
 		// Restituisco la rappresentazione testuale della lista aggiornata
-		string s = debugComputeTicketsList();
+		std::string s = debugComputeTicketsList();
 
 		// Considero un elemento in meno nella catena
 		number_of_elements--;

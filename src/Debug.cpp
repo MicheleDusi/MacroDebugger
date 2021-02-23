@@ -1,7 +1,7 @@
 /*
  * Debug.hpp
  *
- * Project: TranslatedAutomata
+ * Project: MacroDebugger
  *
  * Implementazioni delle funzioni ausiliarie di debug, che non possono essere
  * rese come MACRO per via dell'utilizzo di strutture dati specifiche.
@@ -14,7 +14,7 @@
 
 using std::list;
 
-namespace quicksc {
+namespace macrodebug {
 
 	list<int> tickets_stack = list<int>();
 	int number_of_elements = 0;
@@ -89,7 +89,3 @@ namespace quicksc {
 	}
 
 }
-
-
-
-

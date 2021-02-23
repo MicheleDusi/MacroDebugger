@@ -1,7 +1,7 @@
 /*
  * Debug.hpp
  *
- * Project: TranslatedAutomata
+ * Project: MacroDebugger
  *
  * Semplice libreria che fornisce una comoda implementazione
  * delle più comuni funzioni di debug sotto forma di MACRO.
@@ -20,7 +20,7 @@
 #include <stdio.h>
 #include <string>
 
-namespace quicksc {
+namespace macrodebug {
 
 	/**
 	 * Attiva o disattiva la modalità di DEBUG, a seconda che sia

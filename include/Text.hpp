@@ -9,36 +9,32 @@
 #ifndef INCLUDE_TEXT_HPP_
 #define INCLUDE_TEXT_HPP_
 
+#include "Basic.hpp"
 #include "Color.hpp"
 
 namespace macrodebug {
 
-    // Utilità
+    /** Tag structure */
+    #define TAG_BRACKETS(label) 		"[" label "]"
+    #define STRUCTURE_TAG(label)        TAG_BRACKETS( TEXT_BOLD(label) )
+    #define _COLOR_TAG(label, color)    STRUCTURE_TAG( CONCAT(COLOR_, color) ( label ))
+    #define COLOR_TAG(name)             _COLOR_TAG( #name, _##name##_COLOR )
 
-    /** Concatenazione dei valori di due o più parametri x, y, z */
-    #define _CONCAT( x, y )				x ## y
-    #define CONCAT( x, y )				_CONCAT( x, y )
+    /** Associated colors for tags **/
+    #define _DEBUG_COLOR                SKY
+    #define _SUCCESS_COLOR              GREEN
+    #define _FAIL_COLOR                 ORANGE
+    #define _ERROR_COLOR                RED
+    #define _WARNING_COLOR              BANANA
+    #define _INFO_COLOR                 PURPLE
 
-    /** "Stringhificazione" del valore di un parametro x */
-    #define _STRINGIFY( x ) 			#x
-    #define STRINGIFY( x )				_STRINGIFY( x )
-
-    /** Prefisso per la generazione di ID unici */
-    #define ID_PREFIX 					debug_var_
-
-    /** Macro per la generazione di ID unici.*/
-    #define UNIQUE_ID					CONCAT( ID_PREFIX, __LINE__ )
-
-    /** Aggiunge delle parentesi per identificare un tag nei messaggi di log */
-    #define TAG_BRACKETS( text ) 		"[" text "]"
-
-
-
-    /** Tag facilmente identificabili per i messaggi di log */
-    #define DEBUG_TAG 					TAG_BRACKETS( COLOR_CYAN  ( "DEBUG"   ) )
-    #define SUCCESS_TAG 				TAG_BRACKETS( COLOR_GREEN ( "SUCCESS" ) )
-    #define FAIL_TAG					TAG_BRACKETS( COLOR_YELLOW( "FAIL"    ) )
-    #define ERROR_TAG					TAG_BRACKETS( COLOR_RED   ( "ERROR"   ) )
+    /** Main tags for log messages */
+    #define DEBUG_TAG 					COLOR_TAG( DEBUG )
+    #define SUCCESS_TAG 				COLOR_TAG( SUCCESS )
+    #define FAIL_TAG					COLOR_TAG( FAIL )
+    #define ERROR_TAG					COLOR_TAG( ERROR )
+    #define WARNING_TAG                 COLOR_TAG( WARNING )
+    #define INFO_TAG                    COLOR_TAG( INFO )
 
 }
 

@@ -4,14 +4,6 @@
  * Project:         MacroDebugger
  * Created by:      Michele Dusi
  *
- *
- * Semplice libreria che fornisce una comoda implementazione
- * delle più comuni funzioni di debug sotto forma di MACRO.
- *
- * Per attivare la modalità di debug -> agire sulla macro
- * DEBUG_MODE facendo in modo che sia definita (si veda sotto).
- * Per disattivare la modalità di debug -> agire sulla macro
- * DEBUG_MODE commentando la riga della sua definizione.
  */
 
 #ifndef INCLUDE_DEBUG_HPP_
@@ -20,8 +12,9 @@
 namespace macrodebug {
 
 	/**
-	 * Attiva o disattiva la modalità di DEBUG, a seconda che sia
-	 * rispettivamente decommentato o commentato.
+	 * Main "switch" for the debugging library functions.
+	 * If the macro "DEBUG_MODE" is defined, the macro functions will be active.
+	 * Otherwise, the functions won't work (and won't be expanded in any case: the preprocessor will simply erase them!)
 	 */
 	#define DEBUG_MODE
 

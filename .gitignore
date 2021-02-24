@@ -1,0 +1,6 @@
+
+# Object files
+obj/*
+
+# Binary executable files
+bin/*

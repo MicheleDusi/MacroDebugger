@@ -34,34 +34,43 @@ namespace macrodebug {
 
     /**
      * Macro function.
-     * Stampa un messaggio di log con un tag iniziale che indica il successo di un'operazione.
-     * Il log è accompagnato dal nome del file e dal numero di riga.
-     * Per ulteriori informazioni, vedere la definizione di "DEBUG_LOG".
-     *
+     * Prints a logging line marked with the "SUCCESS" tag.
+     * It uses the main logging function, thus the message will contain the line number and the file name.
      */
     #define DEBUG_LOG_SUCCESS( message, ...) 														\
         DEBUG_LOG( SUCCESS_TAG " " message __VA_OPT__(,) __VA_ARGS__ )
 
     /**
      * Macro function.
-     * Stampa un messaggio di log con un tag iniziale che indica il fallimento di un'operazione.
-     * Il log è accompagnato dal nome del file e dal numero di riga.
-     * Per ulteriori informazioni, vedere la definizione di "DEBUG_LOG".
-     *
+     * Prints a logging line marked with the "FAIL" tag.
+     * It uses the main logging function, thus the message will contain the line number and the file name.
      */
     #define DEBUG_LOG_FAIL( message, ...) 															\
         DEBUG_LOG( FAIL_TAG " " message __VA_OPT__(,) __VA_ARGS__ )
 
     /**
      * Macro function.
-     * Stampa un messaggio di log con un tag iniziale che indica un errore interno al processo
-     * di compilazione.
-     * Il log è accompagnato dal nome del file e dal numero di riga.
-     * Per ulteriori informazioni, vedere la definizione di "DEBUG_LOG".
-     *
+     * Prints a logging line marked with the "ERROR" tag.
+     * It uses the main logging function, thus the message will contain the line number and the file name.
      */
     #define DEBUG_LOG_ERROR( message, ...) 															\
         DEBUG_LOG( ERROR_TAG " " message __VA_OPT__(,) __VA_ARGS__ )
+
+    /**
+     * Macro function.
+     * Prints a logging line marked with the "INFO" tag.
+     * It uses the main logging function, thus the message will contain the line number and the file name.
+     */
+    #define DEBUG_LOG_INFO( message, ...) 															\
+        DEBUG_LOG( INFO_TAG " " message __VA_OPT__(,) __VA_ARGS__ )
+
+    /**
+     * Macro function.
+     * Prints a logging line marked with the "WARNING" tag.
+     * It uses the main logging function, thus the message will contain the line number and the file name.
+     */
+    #define DEBUG_LOG_WARNING( message, ...) 															\
+        DEBUG_LOG( WARNING_TAG " " message __VA_OPT__(,) __VA_ARGS__ )
 
 }
 
